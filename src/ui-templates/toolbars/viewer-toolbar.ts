@@ -4,6 +4,7 @@ import * as OBF from "@thatopen/components-front";
 import * as FRAGS from "@thatopen/fragments";
 import * as THREE from "three";
 import { appIcons, tooltips } from "../../globals";
+import { MeasurerUI } from "../../bim-components/Measurer/src";
 
 export interface ViewerToolbarState {
   components: OBC.Components;
@@ -173,6 +174,13 @@ export const viewerToolbarTemplate: BUI.StatefullComponent<
           </bim-context-menu>
         </bim-button>
       </bim-toolbar-section> 
+      <bim-toolbar-section label="Measure" icon=${appIcons.SHOW}>
+        <bim-button icon=${appIcons.RULER} label="Measure">
+          <bim-context-menu>
+            ${MeasurerUI(components)}
+          </bim-context-menu>
+        </bim-button>
+      </bim-toolbar-section>
     </bim-toolbar>
   `;
 };
